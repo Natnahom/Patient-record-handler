@@ -1,3 +1,31 @@
+//import java.sql.*;
+//
+//public class DatabaseConnection {
+//    public static void main(String[] args)
+//            throws SQLException, ClassNotFoundException {
+//
+//        // Connect to a database
+//        Connection connection = DriverManager.getConnection
+//                ("jdbc:mysql://localhost:3306/patientsdb" , "root", "12211219");
+//        System.out.println("Database connected");
+//
+//        // Create a statement
+//        Statement statement = connection.createStatement();
+//
+//        // Execute a statement
+//        ResultSet resultSet = statement.executeQuery
+//                ("select * from patients");
+//
+//        // Iterate through the result and print the student names
+//        while (resultSet.next())
+//            System.out.println(resultSet.getString(1) + "\t" +
+//                    resultSet.getString(2));
+//
+//        // Close the connection
+//        connection.close();
+//    }
+//}
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
