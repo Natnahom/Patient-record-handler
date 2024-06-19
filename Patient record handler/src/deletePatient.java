@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class deletePatient extends Component {
@@ -71,51 +72,57 @@ frame4.add(LField);
 //        }
 
         try {
-            // Connect to the database
-//            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/your_database", "your_username", "your_password");
             Connection conn = DatabaseConnection.getConnection();
 
             conn.setAutoCommit(false);
 
-            // Prepare the SQL delete statements
-            PreparedStatement stmt = conn.prepareStatement("DELETE FROM patients WHERE Firstname = ? AND Lastname = ?");
-            PreparedStatement stmt2 = conn.prepareStatement("DELETE FROM medical_conditions WHERE id = (SELECT id FROM patients WHERE Firstname = ? AND Lastname = ?)");
-            PreparedStatement stmt3 = conn.prepareStatement("DELETE FROM medications_and_payments WHERE id = (SELECT id FROM patients WHERE Firstname = ? AND Lastname = ?)");
-            PreparedStatement stmt4 = conn.prepareStatement("DELETE FROM tests WHERE id = (SELECT id FROM patients WHERE Firstname = ? AND Lastname = ?)");
+            // Check if the patient exists
+            PreparedStatement checkStmt = conn.prepareStatement("SELECT id FROM patients WHERE Firstname = ? AND Lastname = ?");
+            checkStmt.setString(1, firstName);
+            checkStmt.setString(2, lastName);
+            ResultSet rs = checkStmt.executeQuery();
 
-            stmt.setString(1, firstName);
-            stmt.setString(2, lastName);
-            stmt2.setString(1, firstName);
-            stmt2.setString(2, lastName);
-            stmt3.setString(1, firstName);
-            stmt3.setString(2, lastName);
-            stmt4.setString(1, firstName);
-            stmt4.setString(2, lastName);
+            if (rs.next()) {
+                // Prepare the SQL delete statements
+                PreparedStatement stmt = conn.prepareStatement("DELETE FROM patients WHERE Firstname = ? AND Lastname = ?");
+                PreparedStatement stmt2 = conn.prepareStatement("DELETE FROM medical_conditions WHERE id = ?");
+                PreparedStatement stmt3 = conn.prepareStatement("DELETE FROM medications_and_payments WHERE id = ?");
+                PreparedStatement stmt4 = conn.prepareStatement("DELETE FROM tests WHERE id = ?");
 
-            // Execute the delete statement
-            int rowsDeleted = stmt.executeUpdate();
-            int rowsDeleted2 = stmt2.executeUpdate();
-            int rowsDeleted3 = stmt3.executeUpdate();
-            int rowsDeleted4 = stmt4.executeUpdate();
+                stmt.setString(1, firstName);
+                stmt.setString(2, lastName);
+                stmt2.setInt(1, ((ResultSet) rs).getInt("id"));
+                stmt3.setInt(1, rs.getInt("id"));
+                stmt4.setInt(1, rs.getInt("id"));
 
-            if (rowsDeleted > 0 && rowsDeleted2 > 0 && rowsDeleted3 > 0 && rowsDeleted4 > 0) {
-                conn.commit();
-                JOptionPane.showMessageDialog(null, "Patient deleted successfully!");
+                // Execute the delete statements
+                int rowsDeleted = stmt.executeUpdate();
+                int rowsDeleted2 = stmt2.executeUpdate();
+                int rowsDeleted3 = stmt3.executeUpdate();
+                int rowsDeleted4 = stmt4.executeUpdate();
+
+                // Check the results of the delete statements
+                if (rowsDeleted > 0 && rowsDeleted2 > 0 && rowsDeleted3 > 0 && rowsDeleted4 > 0) {
+                    conn.commit();
+                    JOptionPane.showMessageDialog(null, "Patient deleted successfully!");
+                } else {
+                    conn.rollback();
+                    JOptionPane.showMessageDialog(null, "Patient not found.");
+                }
             } else {
-                conn.rollback();
                 JOptionPane.showMessageDialog(null, "Patient not found.");
             }
+
 
             // Close the connection
             conn.close();
         }
-        catch (Exception e) {
-//            e.printStackTrace();
+        catch (SQLException e) {
+            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Error deleting patient: " + e.getMessage());
         }
-        finally {
-//            throw new RuntimeException(e);
-            JOptionPane.showMessageDialog(null, "Error deleting patient: ");
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error deleting patient: " + e.getMessage());
         }
     }
 }

@@ -1,12 +1,12 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
+//import java.util.InputMismatchException;
+//import java.util.Scanner;
 
-import java.awt.*;
+//import java.awt.*;
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.Connection;
+//import javax.swing.border.Border;
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
+//import java.sql.Connection;
 
 public class Main {
     public static void main(String[] args) {
@@ -165,7 +165,7 @@ class mainFunc{
 
         JButton button1 = new JButton("Add patient");
         JButton button2 = new JButton("Update patient info");
-        JButton button3 = new JButton("Show all patients");
+        JButton button3 = new JButton("Retrieve patients");
         JButton button4 = new JButton("Delete patient info");
 
         JLabel label = new JLabel();
@@ -196,36 +196,37 @@ class mainFunc{
         frame.add(button4);
 
 
-        button1.addActionListener(e ->
-                frame.setVisible(false)
-        );
+        button1.addActionListener(e -> {
+            frame.setVisible(false);
+            new addPatient();
+        });
 
-        button1.addActionListener(e ->
-                new addPatient()
-        );
+//        button1.addActionListener(e ->
+//        );
 
-        button2.addActionListener(e ->
-                frame.setVisible(false)
-        );
+        button2.addActionListener(e -> {
+            frame.setVisible(false);
+            new updatePatient();
+        });
 
-        button2.addActionListener(e ->
-                new updatePatient()
-        );
+//        button2.addActionListener(e ->
+//        );
 
-        button3.addActionListener(e ->
-                frame.setVisible(false)
-        );
+        button3.addActionListener(e -> {
+            frame.setVisible(false);
+            new showallPatients();
+        });
 
-        button3.addActionListener(e ->
-                new showallPatients()
-        );
+//        button3.addActionListener(e ->
+//        );
 
-        button4.addActionListener(e ->
-                frame.setVisible(false)
-        );
+        button4.addActionListener(e -> {
+            frame.setVisible(false);
+            new deletePatient();
 
-        button4.addActionListener(e ->
-                new deletePatient()
-        );
+        });
+
+//        button4.addActionListener(e ->
+//        );
     }
 }
