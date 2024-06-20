@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.Statement;
+import java.sql.*;
 
 public class addPatient {
     addPatient(){
@@ -184,138 +181,127 @@ public class addPatient {
         Reset.setBounds(600, 600, 100, 25);
 
         Submit.addActionListener(e -> {
-            try {
-                // Get the connection from the DatabaseConnection class
-                Connection conn = DatabaseConnection.getConnection();
+            if (!(FField.getText().isEmpty()) && !(LField.getText().isEmpty())) {
+                try {
+                    // Get the connection from the DatabaseConnection class
+                    Connection conn = DatabaseConnection.getConnection();
 
-                // Get the values from the text fields
-                String firstName = FField.getText();
-                String lastName = LField.getText();
-                String dateOfBirth = DBField.getText();
-                String Gender = genderF.getText();
-                String Phone = phoneF.getText();
-                String Address = addressF.getText();
-                String Email = emailF.getText();
-                String emergencyContact = EmergencyContactF.getText();
-                String pastMedicalCondition = PastMedicalConditionF.getText();
-                String surgicalHistory = SurgicalHistoryF.getText();
-                String allergies = AllergiesF.getText();
-                String currentMedications = CurrentMedicationsF.getText();
-                String familyMedicalHistory = FamilyMedicalHistoryF.getText();
-                String bloodPressure = BloodPressureF.getText();
-                String temperature = TemperatureF.getText();
-                String heartRate = HeartRateF.getText();
-                String respiratoryRate = RespiratoryRateF.getText();
-                String height1 = heightF.getText();
-                String weight1 = weightF.getText();
-                // patient p = new patient(firstName, lastName,dateOfBirth,gender1,phone1,address1,email1,emergencyContact);
-                // String BMI = p.calcBMI(height1, weight1);
-                String physicalExamination = PhysicalExaminationF.getText();
-                String labTest = LabTestF.getText();
-                String mri = MRI_F.getText();
-                String xRay = X_RAY_F.getText();
-                String prescribedMedication = PrescribedMedicationF.getText();
-                String dosage = DosageF.getText();
-                String frequencyAndInstructions = frequency_and_instructionsF.getText();
-                String orderedDiagnosticTests = OrderedDiagnosticTestsF.getText();
-                String referralsToSpecialists = ReferralsToSpecialistsF.getText();
-                String immunizationRecords = ImmunizationRecordsF.getText();
-                String schedule = ScheduleF.getText();
-                String insuranceInfo = InsuranceInfoF.getText();
-                String paymentHistory = PaymentHistoryF.getText();
+                    // Get the values from the text fields
+                    String firstName = FField.getText();
+                    String lastName = LField.getText();
+                    String dateOfBirth = DBField.getText();
+                    String Gender = genderF.getText();
+                    String Phone = phoneF.getText();
+                    String Address = addressF.getText();
+                    String Email = emailF.getText();
+                    String emergencyContact = EmergencyContactF.getText();
+                    String pastMedicalCondition = PastMedicalConditionF.getText();
+                    String surgicalHistory = SurgicalHistoryF.getText();
+                    String allergies = AllergiesF.getText();
+                    String currentMedications = CurrentMedicationsF.getText();
+                    String familyMedicalHistory = FamilyMedicalHistoryF.getText();
+                    String bloodPressure = BloodPressureF.getText();
+                    String temperature = TemperatureF.getText();
+                    String heartRate = HeartRateF.getText();
+                    String respiratoryRate = RespiratoryRateF.getText();
+                    String height1 = heightF.getText();
+                    String weight1 = weightF.getText();
+                    // patient p = new patient(firstName, lastName,dateOfBirth,gender1,phone1,address1,email1,emergencyContact);
+                    // String BMI = p.calcBMI(height1, weight1);
+                    String physicalExamination = PhysicalExaminationF.getText();
+                    String labTest = LabTestF.getText();
+                    String mri = MRI_F.getText();
+                    String xRay = X_RAY_F.getText();
+                    String prescribedMedication = PrescribedMedicationF.getText();
+                    String dosage = DosageF.getText();
+                    String frequencyAndInstructions = frequency_and_instructionsF.getText();
+                    String orderedDiagnosticTests = OrderedDiagnosticTestsF.getText();
+                    String referralsToSpecialists = ReferralsToSpecialistsF.getText();
+                    String immunizationRecords = ImmunizationRecordsF.getText();
+                    String schedule = ScheduleF.getText();
+                    String insuranceInfo = InsuranceInfoF.getText();
+                    String paymentHistory = PaymentHistoryF.getText();
 
-                // Prepare the SQL statement
-                PreparedStatement preparedStmt = conn.prepareStatement("INSERT INTO patients (Firstname, Lastname, DateOfBirth, Gender, phoneNo, address, email, EmergencyContact) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-                PreparedStatement preparedStmt2 = conn.prepareStatement("INSERT INTO medical_conditions (Firstname, Lastname, PastMedicalCondition, SurgicalHistory, Allergies, CurrentMedications, FamilyMedicalHistory) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                PreparedStatement preparedStmt3 = conn.prepareStatement("INSERT INTO tests (Firstname, Lastname, BloodPressure, Temperature, HeartRate, RespiratoryRate, height, weight, PhysicalExamination, LabTest, MRI, X_Ray) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                PreparedStatement preparedStmt4 = conn.prepareStatement("INSERT INTO medications_and_payments (Firstname, Lastname, PrescribedMedication, Dosage, frequency_and_instructions, OrderedDiagnosticTests, ReferralsToSpecialists, ImmunizationRecords, Schedule, InsuranceInfo, PaymentHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    // Prepare the SQL statement
+                    PreparedStatement preparedStmt = conn.prepareStatement("INSERT INTO patients (Firstname, Lastname, DateOfBirth, Gender, phoneNo, address, email, EmergencyContact) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    PreparedStatement preparedStmt2 = conn.prepareStatement("INSERT INTO medical_conditions (Firstname, Lastname, PastMedicalCondition, SurgicalHistory, Allergies, CurrentMedications, FamilyMedicalHistory) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                    PreparedStatement preparedStmt3 = conn.prepareStatement("INSERT INTO tests (Firstname, Lastname, BloodPressure, Temperature, HeartRate, RespiratoryRate, height, weight, PhysicalExamination, LabTest, MRI, X_Ray) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                    PreparedStatement preparedStmt4 = conn.prepareStatement("INSERT INTO medications_and_payments (Firstname, Lastname, PrescribedMedication, Dosage, frequency_and_instructions, OrderedDiagnosticTests, ReferralsToSpecialists, ImmunizationRecords, Schedule, InsuranceInfo, PaymentHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-                preparedStmt.setString(1, firstName);
-                preparedStmt.setString(2, lastName);
-                preparedStmt.setString(3, dateOfBirth);
-                preparedStmt.setString(4, Gender);
-                preparedStmt.setString(5, Phone);
-                preparedStmt.setString(6, Address);
-                preparedStmt.setString(7, Email);
-                preparedStmt.setString(8, emergencyContact);
+                    // adds the variables in the place of the placeholder
+                    preparedStmt.setString(1, firstName);
+                    preparedStmt.setString(2, lastName);
+                    preparedStmt.setString(3, dateOfBirth);
+                    preparedStmt.setString(4, Gender);
+                    preparedStmt.setString(5, Phone);
+                    preparedStmt.setString(6, Address);
+                    preparedStmt.setString(7, Email);
+                    preparedStmt.setString(8, emergencyContact);
 
-                preparedStmt2.setString(1, firstName);
-                preparedStmt2.setString(2, lastName);
-                preparedStmt2.setString(3, pastMedicalCondition);
-                preparedStmt2.setString(4, surgicalHistory);
-                preparedStmt2.setString(5, allergies);
-                preparedStmt2.setString(6, currentMedications);
-                preparedStmt2.setString(7, familyMedicalHistory);
+                    preparedStmt2.setString(1, firstName);
+                    preparedStmt2.setString(2, lastName);
+                    preparedStmt2.setString(3, pastMedicalCondition);
+                    preparedStmt2.setString(4, surgicalHistory);
+                    preparedStmt2.setString(5, allergies);
+                    preparedStmt2.setString(6, currentMedications);
+                    preparedStmt2.setString(7, familyMedicalHistory);
 
-                preparedStmt3.setString(1, firstName);
-                preparedStmt3.setString(2, lastName);
-                preparedStmt3.setString(3, bloodPressure);
-                preparedStmt3.setString(4, temperature);
-                preparedStmt3.setString(5, heartRate);
-                preparedStmt3.setString(6, respiratoryRate);
-                preparedStmt3.setString(7, height1);
-                preparedStmt3.setString(8, weight1);
-                // preparedStmt.setString(19, BMI);
-                preparedStmt3.setString(9, physicalExamination);
-                preparedStmt3.setString(10, labTest);
-                preparedStmt3.setString(11, mri);
-                preparedStmt3.setString(12, xRay);
+                    preparedStmt3.setString(1, firstName);
+                    preparedStmt3.setString(2, lastName);
+                    preparedStmt3.setString(3, bloodPressure);
+                    preparedStmt3.setString(4, temperature);
+                    preparedStmt3.setString(5, heartRate);
+                    preparedStmt3.setString(6, respiratoryRate);
+                    preparedStmt3.setString(7, height1);
+                    preparedStmt3.setString(8, weight1);
+                    // preparedStmt.setString(19, BMI);
+                    preparedStmt3.setString(9, physicalExamination);
+                    preparedStmt3.setString(10, labTest);
+                    preparedStmt3.setString(11, mri);
+                    preparedStmt3.setString(12, xRay);
 
-                preparedStmt4.setString(1, firstName);
-                preparedStmt4.setString(2, lastName);
-                preparedStmt4.setString(3, prescribedMedication);
-                preparedStmt4.setString(4, dosage);
-                preparedStmt4.setString(5, frequencyAndInstructions);
-                preparedStmt4.setString(6, orderedDiagnosticTests);
-                preparedStmt4.setString(7, referralsToSpecialists);
-                preparedStmt4.setString(8, immunizationRecords);
-                preparedStmt4.setString(9, schedule);
-                preparedStmt4.setString(10, insuranceInfo);
-                preparedStmt4.setString(11, paymentHistory);
-                preparedStmt.executeUpdate();
-                preparedStmt2.executeUpdate();
-                preparedStmt3.executeUpdate();
-                preparedStmt4.executeUpdate();
+                    preparedStmt4.setString(1, firstName);
+                    preparedStmt4.setString(2, lastName);
+                    preparedStmt4.setString(3, prescribedMedication);
+                    preparedStmt4.setString(4, dosage);
+                    preparedStmt4.setString(5, frequencyAndInstructions);
+                    preparedStmt4.setString(6, orderedDiagnosticTests);
+                    preparedStmt4.setString(7, referralsToSpecialists);
+                    preparedStmt4.setString(8, immunizationRecords);
+                    preparedStmt4.setString(9, schedule);
+                    preparedStmt4.setString(10, insuranceInfo);
+                    preparedStmt4.setString(11, paymentHistory);
+
+                    //executes the sql code
+                    preparedStmt.executeUpdate();
+                    preparedStmt2.executeUpdate();
+                    preparedStmt3.executeUpdate();
+                    preparedStmt4.executeUpdate();
 
 
-                // Close the connection
-                conn.close();
+                    // Close the connection
+                    conn.close();
 
-                // Display a success message
-                JOptionPane.showMessageDialog(Reset, this, "Patient added successfully!", 0);
-            }catch (Exception ex) {
-                ex.printStackTrace();
-            } 
+                    // Display a success message
+//                    JOptionPane.showMessageDialog(frame2, this, "Patient added successfully!", 0);
+                    JOptionPane.showMessageDialog(null, "Patient updated successfully!");
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+            else {
+                JOptionPane.showMessageDialog(Reset, this, "At least enter the firstname and lastname!", 0);
+            }
             // catch (SQLException ex) {
             //     // Display an error message
             //     JOptionPane.showMessageDialog(Reset, this, "Error: " + ex.getMessage(), 0);
             // }
         });
 
-        // saveButton.setOnAction(event -> {
-        //     // Get the values from the input fields
-        //     String firstName = firstNameField.getText();
-        //     String lastName = lastNameField.getText();
-        //     String dateOfBirth = dobField.getText();
-        //     // ... (get values for other fields)
-        
-        //     // Create a new patient object and populate it
-        //     Patient patient = new Patient(firstName, lastName, dateOfBirth, /* other parameters */);
-        //     patient.GetCondition(/* condition-related parameters */);
-        //     patient.GetVitalSigns(/* vital signs parameters */);
-        //     // ... (set other patient data)
-        
-        //     // Save the patient information to the database
-        //     savePatientToDatabase(patient);
-        // });
-
-
-        Reset.addActionListener(e -> 
-            frame2.setVisible(false)
-        );
-        Reset.addActionListener(e -> 
-            new mainFunc()
-        );
+        Reset.addActionListener(e -> {
+            frame2.setVisible(false);
+            new mainFunc();
+        });
 
         frame2.add(header);
         header.setForeground(Color.WHITE);
@@ -458,27 +444,4 @@ frame2.add(PaymentHistoryF);
 
     }
 
-    // private void savePatientToDatabase(patient patient) {
-    //     try {
-    //         // Establish a database connection
-    //         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/patientdb", "username", "password");
-    
-    //         // Prepare a SQL statement to insert the patient data
-    //         PreparedStatement statement = connection.prepareStatement(
-    //             "INSERT INTO patients (firstname, lastname, dateofbirth, /* other columns */) VALUES (?, ?, ?, /* other values */)"
-    //         );
-    //         statement.setString(1, patient.getText());
-    //         statement.setString(2, patient.getLastname());
-    //         statement.setString(3, patient.getDateOfBirth());
-    //         // ... (set other parameters)
-    
-    //         // Execute the SQL statement to insert the patient data
-    //         statement.executeUpdate();
-    
-    //         // Close the database connect
-    //         connection.close();
-    //     } catch (SQLException e) {
-    //         e.printStackTrace();
-    //     }
-    // }
 }

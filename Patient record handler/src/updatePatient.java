@@ -159,11 +159,11 @@ public class updatePatient {
                     // Update first name
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateFirstName(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -173,11 +173,12 @@ public class updatePatient {
                     // Update last name
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateLastName(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
+
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -187,25 +188,25 @@ public class updatePatient {
                     // Update date of birth
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateDateOfBirth(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
                     break;
                 case 4:
-                    // Update date of birth
+                    // Update gender
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateGender(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -216,11 +217,11 @@ public class updatePatient {
                     // Update phone number
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updatephoneNo(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -230,11 +231,11 @@ public class updatePatient {
                     // Update address
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateAddress(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -244,11 +245,11 @@ public class updatePatient {
                     // Update email
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateEmail(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -258,11 +259,11 @@ public class updatePatient {
                     // Update emergency contact
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateEmergencyContact(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -272,11 +273,11 @@ public class updatePatient {
                     // Update past medical condition
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updatePastMedicalCondition(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -286,11 +287,11 @@ public class updatePatient {
                     // Update surgical history
                     try {
                         if(Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         }
                         else {
                             updateSurgicalHistory(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -300,10 +301,10 @@ public class updatePatient {
                     // Update allergies
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateAllergies(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -314,10 +315,10 @@ public class updatePatient {
                     // Update current medications
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateCurrentMedications(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -328,10 +329,10 @@ public class updatePatient {
                     // Update family medical history
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateFamilyMedicalHistory(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -342,10 +343,10 @@ public class updatePatient {
                     // Update blood pressure
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateBloodPressure(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -356,10 +357,10 @@ public class updatePatient {
                     // Update temperature
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateTemperature(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -370,10 +371,10 @@ public class updatePatient {
                     // Update heart rate
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateHeartRate(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -384,10 +385,10 @@ public class updatePatient {
                     // Update respiratory rate
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateRespiratoryRate(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -398,10 +399,10 @@ public class updatePatient {
                     // Update height
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error",0);
                         } else {
                             updateHeight(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -412,10 +413,10 @@ public class updatePatient {
                     // Update weight
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateWeight(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -426,10 +427,10 @@ public class updatePatient {
                     // Update physical examination
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updatePhysicalExamination(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -439,10 +440,10 @@ public class updatePatient {
 // Update lab test information
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateLabTest(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -452,10 +453,10 @@ public class updatePatient {
 // Update MRI information
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateMRI(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -465,10 +466,10 @@ public class updatePatient {
 // Update X-Ray information
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateX_Ray(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -478,10 +479,10 @@ public class updatePatient {
 // Update prescribed medication information
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updatePrescribedMedication(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -491,10 +492,10 @@ public class updatePatient {
 // Update medication dosage information
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateDosage(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -504,10 +505,10 @@ public class updatePatient {
 // Update medication frequency and instructions
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateFrequencyAndInstructions(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -517,10 +518,10 @@ public class updatePatient {
 // Update ordered diagnostic tests
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateOrderedDiagnosticTests(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -530,10 +531,10 @@ public class updatePatient {
 // Update referrals to specialists
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateReferralsToSpecialists(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -543,10 +544,10 @@ public class updatePatient {
 // Update immunization records
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateImmunizationRecords(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -556,10 +557,10 @@ public class updatePatient {
 // Update patient schedule
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateSchedule(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -569,10 +570,10 @@ public class updatePatient {
 // Update insurance information
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updateInsuranceInfo(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
@@ -582,10 +583,10 @@ public class updatePatient {
 // Update payment history
                     try {
                         if (Objects.equals(firstName, "") || Objects.equals(lastName, "") || Objects.equals(newInfo, "")) {
-                            JOptionPane.showMessageDialog(Reset, this, "Invalid data!", 0);
+                            JOptionPane.showMessageDialog(Reset, "Invalid data!", "Error", 0);
                         } else {
                             updatePaymentHistory(firstName, lastName, newInfo);
-                            JOptionPane.showMessageDialog(Reset, this, "Patient updated successfully!", 0);
+                            JOptionPane.showMessageDialog(null, "Patient updated successfully!");
                         }
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);

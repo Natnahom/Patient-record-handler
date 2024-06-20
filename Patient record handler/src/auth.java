@@ -30,11 +30,14 @@ public class auth {
         frame.add(reset1);
 
         changePass.addActionListener(e -> {
+            //closes the current frame and changePassword frame
             frame.setVisible(false);
             changePassword();
         });
         submit1.addActionListener(e -> {
+            //checks if it's empty
             if (!(passwordF.getText().isEmpty())) {
+                //stores the entered password to a variable
                 String password = passwordF.getText();
                 try {
                     PreparedStatement stmt1 = conn.prepareStatement("SELECT pass FROM auth");

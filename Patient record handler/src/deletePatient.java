@@ -1,9 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.Objects;
 
 public class deletePatient extends Component {
     deletePatient(){
@@ -37,11 +35,14 @@ public class deletePatient extends Component {
         Reset.setBounds(600, 500, 100, 25);
 
         Submit.addActionListener(e -> {
-            String firstName = FField.getText().trim();
-            String lastName = LField.getText().trim();
-            deletePatientFunc(firstName, lastName);
-//            System.out.println("Patient deleted successfully");
-
+                String firstName = FField.getText().trim();
+                String lastName = LField.getText().trim();
+            if(!(Objects.equals(firstName, "")) || !(Objects.equals(lastName, ""))) {
+                deletePatientFunc(firstName, lastName);
+            }
+            else{
+                JOptionPane.showMessageDialog(frame4, "Please enter a valid first name and last name", "Error", 0);
+            }
         });
 
 
@@ -119,10 +120,10 @@ frame4.add(LField);
         }
         catch (SQLException e) {
             e.printStackTrace();
-            JOptionPane.showMessageDialog(null, "Error deleting patient: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting patient: " + e.getMessage(), "Error", 0);
         }
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error deleting patient: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error deleting patient: " + e.getMessage(), "Error", 0);
         }
     }
 }
