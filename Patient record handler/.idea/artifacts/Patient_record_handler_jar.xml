@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Patient record handler:jar">
+    <output-path>$USER_HOME$/Documents/Other_programs</output-path>
+    <root id="archive" name="Patient record handler.jar">
+      <element id="module-output" name="Patient record handler" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/mysql-connector-j-8.4.0/mysql-connector-j-8.4.0/mysql-connector-j-8.4.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

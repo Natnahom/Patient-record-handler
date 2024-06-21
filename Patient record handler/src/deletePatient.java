@@ -46,12 +46,10 @@ public class deletePatient extends Component {
         });
 
 
-        Reset.addActionListener(e -> 
-            frame4.setVisible(false)
-        );
-        Reset.addActionListener(e -> 
-            new mainFunc()
-        );
+        Reset.addActionListener(e -> {
+            frame4.setVisible(false);
+            new mainFunc();
+        });
 
 frame4.add(header1);
 
@@ -66,11 +64,6 @@ frame4.add(LField);
     }
 
     private void deletePatientFunc(String firstName, String lastName) {
-
-//        if (firstName.isEmpty() || lastName.isEmpty()) {
-//            JOptionPane.showMessageDialog(this, "Please enter both first and last name.");
-//            return;
-//        }
 
         try {
             Connection conn = DatabaseConnection.getConnection();
@@ -93,7 +86,7 @@ frame4.add(LField);
 
                 stmt.setString(1, firstName);
                 stmt.setString(2, lastName);
-                stmt2.setInt(1, ((ResultSet) rs).getInt("id"));
+                stmt2.setInt(1, rs.getInt("id")); //((ResultSet) rs).getInt("id"));
                 stmt3.setInt(1, rs.getInt("id"));
                 stmt4.setInt(1, rs.getInt("id"));
 

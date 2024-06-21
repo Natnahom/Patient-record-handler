@@ -18,12 +18,12 @@ public class auth {
         JButton submit1 = new JButton("Submit");
         JButton reset1 = new JButton("Reset");
 
-        label.setBounds(470, 320, 250, 10);
+        label.setBounds(510, 320, 250, 10);
         changePass.setBounds(10, 10, 200, 15);
 //        addUser.setBounds(1000, 10, 200, 15);
-        passwordF.setBounds(460, 350, 250, 30);
-        submit1.setBounds(420, 400, 130, 30);
-        reset1.setBounds(620, 400, 130, 30);
+        passwordF.setBounds(500, 350, 250, 30);
+        submit1.setBounds(460, 400, 130, 30);
+        reset1.setBounds(660, 400, 130, 30);
 
         frame.add(label);
         frame.add(passwordF);

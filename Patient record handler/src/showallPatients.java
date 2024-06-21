@@ -76,7 +76,7 @@ public class showallPatients extends JFrame {
                         ResultSet rs4 = stmt4.executeQuery();
 
                         // Create a new JTable and populate it with the data
-                        Object[][] data = new Object[1][36];
+                        Object[][] data = new Object[1][37];
                         if (rs1.next() && rs2.next() && rs3.next() && rs4.next()) {
                             data[0][0] = rs1.getInt("id");
                             data[0][1] = rs1.getString("Firstname");
@@ -111,12 +111,13 @@ public class showallPatients extends JFrame {
                             data[0][30] = rs3.getString("Schedule");
                             data[0][31] = rs3.getString("InsuranceInfo");
                             data[0][32] = rs3.getString("PaymentHistory");
-                            data[0][33] = getResultSetData(rs2);
-                            data[0][34] = getResultSetData(rs3);
-                            data[0][35] = getResultSetData(rs4);
+                            data[0][33] = rs3.getString("Date");
+                            data[0][34] = getResultSetData(rs2);
+                            data[0][35] = getResultSetData(rs3);
+                            data[0][36] = getResultSetData(rs4);
                         }
 
-                        String[] columns = {"ID", "First Name", "Last Name", "Date of Birth", "Gender", "Phone No.", "Address", "Email", "Emergency Contact", "Past Medical Condition", "Surgical History", "Allergies", "Current Medications", "Family Medical History", "Blood Pressure", "Temperature", "Heart Rate", "Respiratory Rate", "Height", "Weight", "Physical Examination", "Lab Test", "MRI", "X-Ray", "Prescribed Medication", "Dosage", "Frequency and Instructions", "Ordered Diagnostic Tests", "Referrals to Specialists", "Immunization Records", "Schedule", "Insurance Info", "Payment History"};
+                        String[] columns = {"ID", "First Name", "Last Name", "Date of Birth", "Gender", "Phone No.", "Address", "Email", "Emergency Contact", "Past Medical Condition", "Surgical History", "Allergies", "Current Medications", "Family Medical History", "Blood Pressure", "Temperature", "Heart Rate", "Respiratory Rate", "Height", "Weight", "Physical Examination", "Lab Test", "MRI", "X-Ray", "Prescribed Medication", "Dosage", "Frequency and Instructions", "Ordered Diagnostic Tests", "Referrals to Specialists", "Immunization Records", "Schedule", "Insurance Info", "Payment History", "Date"};
                         JTable table = new JTable(data, columns);
                         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // Disable auto-resize
                         table.setRowHeight(50); // Increase row height
@@ -189,6 +190,7 @@ public class showallPatients extends JFrame {
                     tableModel.addColumn("Schedule");
                     tableModel.addColumn("Insurance Info");
                     tableModel.addColumn("Payment History");
+                    tableModel.addColumn("Date");
 
                     // Create the JTable
 //                JTable table = new JTable(tableModel);
@@ -365,6 +367,7 @@ public class showallPatients extends JFrame {
             String schedule = medicationAndPaymentsResultSet.getString("Schedule");
             String insuranceInfo = medicationAndPaymentsResultSet.getString("InsuranceInfo");
             String paymentHistory = medicationAndPaymentsResultSet.getString("PaymentHistory");
+            String Date = medicationAndPaymentsResultSet.getString("Date");
 
             for (int i = 0; i < tableModel.getRowCount(); i++) {
                 int id1 = (int) tableModel.getValueAt(i, 0);
@@ -378,6 +381,7 @@ public class showallPatients extends JFrame {
                     tableModel.setValueAt(schedule, i, 30);
                     tableModel.setValueAt(insuranceInfo, i, 31);
                     tableModel.setValueAt(paymentHistory, i, 32);
+                    tableModel.setValueAt(Date, i, 33);
                     break;
                 }
             }

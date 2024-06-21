@@ -68,7 +68,6 @@ class mainFunc{
         button4.addActionListener(e -> {
             frame.setVisible(false);
             new deletePatient();
-
         });
 
     }
