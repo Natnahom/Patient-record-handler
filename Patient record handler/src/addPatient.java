@@ -284,13 +284,13 @@ public class addPatient {
 
                     // Display a success message
 //                    JOptionPane.showMessageDialog(frame2, this, "Patient added successfully!", 0);
-                    JOptionPane.showMessageDialog(null, "Patient updated successfully!");
+                    JOptionPane.showMessageDialog(null, "Patient added successfully!");
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
             else {
-                JOptionPane.showMessageDialog(Reset, this, "At least enter the firstname and lastname!", 0);
+                JOptionPane.showMessageDialog(Reset, "At least enter the firstname and lastname!", "Error", 0);
             }
             // catch (SQLException ex) {
             //     // Display an error message

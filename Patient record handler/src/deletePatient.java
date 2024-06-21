@@ -79,6 +79,7 @@ frame4.add(LField);
 
             // Check if the patient exists
             PreparedStatement checkStmt = conn.prepareStatement("SELECT id FROM patients WHERE Firstname = ? AND Lastname = ?");
+//            checkStmt.setString(1, id);
             checkStmt.setString(1, firstName);
             checkStmt.setString(2, lastName);
             ResultSet rs = checkStmt.executeQuery();

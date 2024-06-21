@@ -21,6 +21,7 @@ public class DatabaseConnection {
             System.out.println("Error connecting to the database.");
             e.printStackTrace();
         }
+
         return connection;
     }
 }
