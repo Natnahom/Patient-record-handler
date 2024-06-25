@@ -193,13 +193,10 @@ public class showallPatients extends JFrame {
                     tableModel.addColumn("Date");
 
                     // Create the JTable
-//                JTable table = new JTable(tableModel);
-//                JScrollPane scrollPane = new JScrollPane(table);
-                    // Create the JTable
                     JTable table = new JTable(tableModel);
                     table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // Disable auto-resize
                     table.setRowHeight(50); // Increase row height
-//                table.setMinimumSize(new Dimension(600, 70));
+
 // Set the width for all columns
                     TableColumnModel columnModel = table.getColumnModel();
                     for (int i = 0; i < columnModel.getColumnCount(); i++) {
@@ -258,15 +255,14 @@ public class showallPatients extends JFrame {
 
                     // Create the frame and set the icon
                     JFrame frameMini2 = new JFrame("Patient Records");
-                    frameMini2.setIconImage(new ImageIcon("C:\\Users\\pc\\Desktop\\Class 8\\Object oriented programming\\Patient record handling project\\Images\\patImage.png").getImage());
+                    frameMini2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                    frameMini2.setIconImage(new ImageIcon("C:\\Users\\pc\\IdeaProjects\\Patient record handler\\src\\Images\\patImage.png").getImage());
                     frameMini2.getContentPane().add(scrollPane, "Center");
                     frameMini2.add(new JScrollPane(table));
                     frameMini2.pack();
                     // Add the table to the frame
                     getContentPane().add(scrollPane, "Center");
                     frameMini2.setVisible(true);
-
-                    //                    setVisible(true);
 
                     // Close the resources
                     statement.close();
@@ -277,12 +273,10 @@ public class showallPatients extends JFrame {
             }
             });
 
-        Reset.addActionListener(e ->
-                frame5.setVisible(false)
-        );
-        Reset.addActionListener(e ->
-                new mainFunc()
-        );
+        Reset.addActionListener(e -> {
+            frame5.setVisible(false);
+            new mainFunc();
+        });
 
         frame5.add(header1);
         frame5.add(searchLabel);

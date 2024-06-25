@@ -1,4 +1,3 @@
-import com.mysql.cj.x.protobuf.MysqlxSession;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +8,7 @@ public class updatePatient {
     Connection conn = DatabaseConnection.getConnection();
     updatePatient(){
         Frame frame3 = new Frame();
+        frame3.setTitle("Update Patient");
 
         JLabel Fname = new JLabel("1.First Name ");
         JLabel Lname = new JLabel("2.Last Name ");
@@ -21,7 +21,7 @@ public class updatePatient {
         gender.setBounds(450, 10, 100, 30);
 
         JLabel phone = new JLabel("5.Phone Number ");
-        phone.setBounds(450, 30, 100, 30);
+        phone.setBounds(450, 30, 150, 30);
 
         JLabel address = new JLabel("6.Address ");
         address.setBounds(450, 50, 100, 30);
@@ -45,7 +45,7 @@ public class updatePatient {
         CurrentMedications.setBounds(50, 170, 150, 30);
 
         JLabel FamilyMedicalHistory = new JLabel("13.Family medical history ");
-        FamilyMedicalHistory.setBounds(50, 190, 150, 30);
+        FamilyMedicalHistory.setBounds(50, 190, 200, 30);
 
         JLabel BloodPressure = new JLabel("14.Blood pressure ");
         BloodPressure.setBounds(50, 210, 150, 30);

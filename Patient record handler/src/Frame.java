@@ -7,8 +7,8 @@ public class Frame extends JFrame {
         this.setTitle("Patient Record Handler");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(1100,600);
-        this.setVisible(true);
         this.setLayout(null);
+        this.setVisible(true);
 
         ImageIcon image = new ImageIcon("C:\\Users\\pc\\IdeaProjects\\Patient record handler\\src\\Images\\patImage.png");
         this.setIconImage(image.getImage());

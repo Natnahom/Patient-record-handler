@@ -6,6 +6,7 @@ public class addPatient {
     addPatient(){
 
         Frame frame2 = new Frame();
+        frame2.setTitle("Add Patient");
 
         JLabel header = new JLabel();
         header.setText("Enter every information asked(if the question doesn't ");
