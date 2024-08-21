@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.Objects;
 
@@ -76,49 +78,49 @@ public class showallPatients extends JFrame {
                         ResultSet rs4 = stmt4.executeQuery();
 
                         // Create a new JTable and populate it with the data
-                        Object[][] data = new Object[1][37];
+                        final Object[][][] data = {new Object[1][37]};
                         if (rs1.next() && rs2.next() && rs3.next() && rs4.next()) {
-                            data[0][0] = rs1.getInt("id");
-                            data[0][1] = rs1.getString("Firstname");
-                            data[0][2] = rs1.getString("Lastname");
-                            data[0][3] = rs1.getString("DateOfBirth");
-                            data[0][4] = rs1.getString("Gender");
-                            data[0][5] = rs1.getString("phoneNo");
-                            data[0][6] = rs1.getString("address");
-                            data[0][7] = rs1.getString("email");
-                            data[0][8] = rs1.getString("EmergencyContact");
-                            data[0][9] = rs2.getString("PastMedicalCondition");
-                            data[0][10] = rs2.getString("SurgicalHistory");
-                            data[0][11] = rs2.getString("Allergies");
-                            data[0][12] = rs2.getString("CurrentMedications");
-                            data[0][13] = rs2.getString("FamilyMedicalHistory");
-                            data[0][14] = rs4.getString("BloodPressure");
-                            data[0][15] = rs4.getString("Temperature");
-                            data[0][16] = rs4.getString("HeartRate");
-                            data[0][17] = rs4.getString("RespiratoryRate");
-                            data[0][18] = rs4.getString("height");
-                            data[0][19] = rs4.getString("weight");
-                            data[0][20] = rs4.getString("PhysicalExamination");
-                            data[0][21] = rs4.getString("LabTest");
-                            data[0][22] = rs4.getString("MRI");
-                            data[0][23] = rs4.getString("X_Ray");
-                            data[0][24] = rs3.getString("PrescribedMedication");
-                            data[0][25] = rs3.getString("Dosage");
-                            data[0][26] = rs3.getString("frequency_and_instructions");
-                            data[0][27] = rs3.getString("OrderedDiagnosticTests");
-                            data[0][28] = rs3.getString("ReferralsToSpecialists");
-                            data[0][29] = rs3.getString("ImmunizationRecords");
-                            data[0][30] = rs3.getString("Schedule");
-                            data[0][31] = rs3.getString("InsuranceInfo");
-                            data[0][32] = rs3.getString("PaymentHistory");
-                            data[0][33] = rs3.getString("Date");
-                            data[0][34] = getResultSetData(rs2);
-                            data[0][35] = getResultSetData(rs3);
-                            data[0][36] = getResultSetData(rs4);
+                            data[0][0][0] = rs1.getInt("id");
+                            data[0][0][1] = rs1.getString("Firstname");
+                            data[0][0][2] = rs1.getString("Lastname");
+                            data[0][0][3] = rs1.getString("DateOfBirth");
+                            data[0][0][4] = rs1.getString("Gender");
+                            data[0][0][5] = rs1.getString("phoneNo");
+                            data[0][0][6] = rs1.getString("address");
+                            data[0][0][7] = rs1.getString("email");
+                            data[0][0][8] = rs1.getString("EmergencyContact");
+                            data[0][0][9] = rs2.getString("PastMedicalCondition");
+                            data[0][0][10] = rs2.getString("SurgicalHistory");
+                            data[0][0][11] = rs2.getString("Allergies");
+                            data[0][0][12] = rs2.getString("CurrentMedications");
+                            data[0][0][13] = rs2.getString("FamilyMedicalHistory");
+                            data[0][0][14] = rs4.getString("BloodPressure");
+                            data[0][0][15] = rs4.getString("Temperature");
+                            data[0][0][16] = rs4.getString("HeartRate");
+                            data[0][0][17] = rs4.getString("RespiratoryRate");
+                            data[0][0][18] = rs4.getString("height");
+                            data[0][0][19] = rs4.getString("weight");
+                            data[0][0][20] = rs4.getString("PhysicalExamination");
+                            data[0][0][21] = rs4.getString("LabTest");
+                            data[0][0][22] = rs4.getString("MRI");
+                            data[0][0][23] = rs4.getString("X_Ray");
+                            data[0][0][24] = rs3.getString("PrescribedMedication");
+                            data[0][0][25] = rs3.getString("Dosage");
+                            data[0][0][26] = rs3.getString("frequency_and_instructions");
+                            data[0][0][27] = rs3.getString("OrderedDiagnosticTests");
+                            data[0][0][28] = rs3.getString("ReferralsToSpecialists");
+                            data[0][0][29] = rs3.getString("ImmunizationRecords");
+                            data[0][0][30] = rs3.getString("Schedule");
+                            data[0][0][31] = rs3.getString("InsuranceInfo");
+                            data[0][0][32] = rs3.getString("PaymentHistory");
+                            data[0][0][33] = rs3.getString("Date");
+                            data[0][0][34] = getResultSetData(rs2);
+                            data[0][0][35] = getResultSetData(rs3);
+                            data[0][0][36] = getResultSetData(rs4);
                         }
 
                         String[] columns = {"ID", "First Name", "Last Name", "Date of Birth", "Gender", "Phone No.", "Address", "Email", "Emergency Contact", "Past Medical Condition", "Surgical History", "Allergies", "Current Medications", "Family Medical History", "Blood Pressure", "Temperature", "Heart Rate", "Respiratory Rate", "Height", "Weight", "Physical Examination", "Lab Test", "MRI", "X-Ray", "Prescribed Medication", "Dosage", "Frequency and Instructions", "Ordered Diagnostic Tests", "Referrals to Specialists", "Immunization Records", "Schedule", "Insurance Info", "Payment History", "Date"};
-                        JTable table = new JTable(data, columns);
+                        JTable table = new JTable(data[0], columns);
                         table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF); // Disable auto-resize
                         table.setRowHeight(50); // Increase row height
 
@@ -145,16 +147,71 @@ public class showallPatients extends JFrame {
 //                        editBtnFM.setBounds(90,30,50,30);
 //                        deleteBtnFM.setBounds(150,30,50,30);
 
+                        addBtnFM.addActionListener(e2 -> {
+                            new addPatient();
+                        });
+
                         frameMini.add(new JScrollPane(table));
                         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
                         buttonPanel.add(addBtnFM);
                         buttonPanel.add(editBtnFM);
                         buttonPanel.add(deleteBtnFM);
 
+                        // Add action listener to the Edit button
+                        editBtnFM.addActionListener( e3 -> {
+                            new updatePatient();
+                        });
+
+//                        // Get the selected row index
+//                        int selectedRow = table.getSelectedRow();
+//
+//                        // Add an action listener to the delete button
+//                        deleteBtnFM.addActionListener(new ActionListener() {
+////                            @Override
+//                            public void actionPerformed(ActionEvent e) {
+//                                if (selectedRow >= 0) {
+//                                    int patientId = (int) data[0][selectedRow][0]; // Get the patient ID from the selected row
+//
+//                                    try {
+//                                        // Prepare the SQL delete statement
+//                                        PreparedStatement deleteStmt = conn.prepareStatement("DELETE FROM patients WHERE id = ?");
+//                                        deleteStmt.setInt(1, patientId);
+//
+//                                        // Execute the delete statement
+//                                        int rowsDeleted = deleteStmt.executeUpdate();
+//
+//                                        if (rowsDeleted > 0) {
+//                                            // Remove the selected row from the table data
+//                                            data[0] = new Object[data[0].length - 1][37];
+//                                            int index = 0;
+//                                            for (int i = 0; i < data[0].length + 1; i++) {
+//                                                if (i != selectedRow) {
+//                                                    data[0][index] = (Object[]) table.getValueAt(i, 0);
+//                                                    index++;
+//                                                }
+//                                            }
+//
+//                                            // Update the table with the new data
+//                                            table.setModel(new DefaultTableModel(data[0], columns));
+//                                            JOptionPane.showMessageDialog(null, "Patient record deleted successfully.");
+//                                        } else {
+//                                            JOptionPane.showMessageDialog(null, "Failed to delete patient record.");
+//                                        }
+//                                    } catch (SQLException e3) {
+//                                        e3.printStackTrace();
+//                                        JOptionPane.showMessageDialog(null, "Error deleting patient record: " + e3.getMessage());
+//                                    }
+//                                } else {
+//                                    JOptionPane.showMessageDialog(null, "Please select a row to delete.");
+//                                }
+//                            }
+//                        });
+
                         // Add the components to the frame
                         frameMini.getContentPane().add(buttonPanel, BorderLayout.NORTH);
                         frameMini.pack();
                         frameMini.setVisible(true);
+
                     } else {
                         JOptionPane.showMessageDialog(null, "Patient not found.");
                     }
@@ -291,6 +348,41 @@ public class showallPatients extends JFrame {
                     buttonPanel.add(editBtnFM);
                     buttonPanel.add(deleteBtnFM);
 
+                    editBtnFM.addActionListener( e3 -> {
+                        new updatePatient();
+                    });
+
+                    deleteBtnFM.addActionListener(e2 -> {
+                        int selectedRow = table.getSelectedRow();
+                        if (selectedRow != -1) {
+                            try {
+//                                Connection conn = DatabaseConnection.getConnection();
+                                Statement statement2 = conn.createStatement();
+
+                                // Get the patient ID from the selected row
+                                int patientId = (int) tableModel.getValueAt(selectedRow, 0);
+
+                                // Execute the DELETE query
+                                int rowsDeleted = statement2.executeUpdate("DELETE FROM patients WHERE id = " + patientId);
+
+                                if (rowsDeleted > 0) {
+                                    // Remove the corresponding row from the table model
+                                    tableModel.removeRow(selectedRow);
+                                    JOptionPane.showMessageDialog(frameMini2, "Patient record deleted successfully.");
+                                } else {
+                                    JOptionPane.showMessageDialog(frameMini2, "Failed to delete patient record.", "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+
+                                statement2.close();
+//                                conn.close();
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                                JOptionPane.showMessageDialog(frameMini2, "Error deleting patient record: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                        } else {
+                            JOptionPane.showMessageDialog(frameMini2, "Please select a row to delete.", "Warning", JOptionPane.WARNING_MESSAGE);
+                        }
+                    });
                     // Add the components to the frame
                     frameMini2.getContentPane().add(buttonPanel, BorderLayout.NORTH);
 
@@ -306,7 +398,7 @@ public class showallPatients extends JFrame {
 
                     // Close the resources
                     statement.close();
-                    conn.close();
+//                    conn.close();
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
