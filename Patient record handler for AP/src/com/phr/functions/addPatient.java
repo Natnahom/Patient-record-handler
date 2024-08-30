@@ -1,3 +1,7 @@
+package com.phr.functions;
+
+import com.phr.database.DatabaseConnection;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
@@ -7,6 +11,8 @@ public class addPatient {
 
         Frame frame2 = new Frame();
         frame2.setTitle("Add Patient");
+
+        frame2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JLabel header = new JLabel();
         header.setText("Enter every information asked(if the question doesn't ");
@@ -184,7 +190,7 @@ public class addPatient {
         Submit.addActionListener(e -> {
             if (!(FField.getText().isEmpty()) && !(LField.getText().isEmpty())) {
                 try {
-                    // Get the connection from the DatabaseConnection class
+                    // Get the connection from the com.phr.database.DatabaseConnection class
                     Connection conn = DatabaseConnection.getConnection();
 
                     // Get the values from the text fields

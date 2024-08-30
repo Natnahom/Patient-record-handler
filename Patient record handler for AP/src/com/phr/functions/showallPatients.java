@@ -1,16 +1,18 @@
+package com.phr.functions;
+
+import com.phr.database.DatabaseConnection;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.Objects;
 
 
 public class showallPatients extends JFrame {
-    showallPatients() {
-        Frame frame5 = new Frame();
+    public showallPatients() {
+        com.phr.functions.Frame frame5 = new Frame();
 
         JLabel header1 = new JLabel("Search patients or retrieve all patients information (if you don't enter these options, it's going to retrieve all patients)");
         header1.setBounds(50, 50, 1000, 50);
@@ -40,7 +42,7 @@ public class showallPatients extends JFrame {
         JButton Show = new JButton("Show");
         Show.setBounds(520, 600, 100, 25);
 
-        JButton Reset = new JButton("Cancel");
+        JButton Reset = new JButton("Reset");
         Reset.setBounds(650, 600, 100, 25);
 
         Show.addActionListener(e -> {
@@ -162,51 +164,41 @@ public class showallPatients extends JFrame {
                             new updatePatient();
                         });
 
-//                        // Get the selected row index
-//                        int selectedRow = table.getSelectedRow();
-//
-//                        // Add an action listener to the delete button
-//                        deleteBtnFM.addActionListener(new ActionListener() {
-////                            @Override
-//                            public void actionPerformed(ActionEvent e) {
-//                                if (selectedRow >= 0) {
-//                                    int patientId = (int) data[0][selectedRow][0]; // Get the patient ID from the selected row
-//
-//                                    try {
-//                                        // Prepare the SQL delete statement
-//                                        PreparedStatement deleteStmt = conn.prepareStatement("DELETE FROM patients WHERE id = ?");
-//                                        deleteStmt.setInt(1, patientId);
-//
-//                                        // Execute the delete statement
-//                                        int rowsDeleted = deleteStmt.executeUpdate();
-//
-//                                        if (rowsDeleted > 0) {
-//                                            // Remove the selected row from the table data
-//                                            data[0] = new Object[data[0].length - 1][37];
-//                                            int index = 0;
-//                                            for (int i = 0; i < data[0].length + 1; i++) {
-//                                                if (i != selectedRow) {
-//                                                    data[0][index] = (Object[]) table.getValueAt(i, 0);
-//                                                    index++;
-//                                                }
-//                                            }
-//
-//                                            // Update the table with the new data
-//                                            table.setModel(new DefaultTableModel(data[0], columns));
-//                                            JOptionPane.showMessageDialog(null, "Patient record deleted successfully.");
-//                                        } else {
-//                                            JOptionPane.showMessageDialog(null, "Failed to delete patient record.");
-//                                        }
-//                                    } catch (SQLException e3) {
-//                                        e3.printStackTrace();
-//                                        JOptionPane.showMessageDialog(null, "Error deleting patient record: " + e3.getMessage());
-//                                    }
-//                                } else {
-//                                    JOptionPane.showMessageDialog(null, "Please select a row to delete.");
-//                                }
-//                            }
-//                        });
+                        // Add action listener to the Delete button
+                        deleteBtnFM.addActionListener(e3 -> {
+                            int selectedRow = table.getSelectedRow(); // Get the selected row
+                            if (selectedRow != -1) { // Check if a row is selected
+                                int patId = (int) table.getValueAt(selectedRow, 0); // Assuming ID is in the first column
 
+                                // Confirm deletion
+                                int confirmation = JOptionPane.showConfirmDialog(null, "Are you sure you want to delete this patient?", "Confirm Deletion", JOptionPane.YES_NO_OPTION);
+                                if (confirmation == JOptionPane.YES_OPTION) {
+                                    try {
+//                                        Connection conn = com.phr.database.DatabaseConnection.getConnection();
+
+                                        // Prepare delete statement
+                                        PreparedStatement deleteStmt = conn.prepareStatement("DELETE FROM patients WHERE id = ?");
+                                        deleteStmt.setInt(1, patId);
+                                        deleteStmt.executeUpdate();
+
+                                        // Remove the selected row from the table
+                                        ((DefaultTableModel) table.getModel()).removeRow(selectedRow);
+
+                                        // Optionally, refresh the table data if needed
+                                        // refreshTableData(); // Implement this method if you want to reload data
+
+                                        JOptionPane.showMessageDialog(null, "Patient deleted successfully.");
+
+                                        conn.close();
+                                    } catch (SQLException ex) {
+                                        ex.printStackTrace();
+                                        JOptionPane.showMessageDialog(null, "Error deleting patient: " + ex.getMessage());
+                                    }
+                                }
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Please select a patient to delete.");
+                            }
+                        });
                         // Add the components to the frame
                         frameMini.getContentPane().add(buttonPanel, BorderLayout.NORTH);
                         frameMini.pack();
@@ -216,7 +208,7 @@ public class showallPatients extends JFrame {
                         JOptionPane.showMessageDialog(null, "Patient not found.");
                     }
 
-                    conn.close();
+//                    conn.close();
                 } catch (SQLException e2) {
                     e2.printStackTrace();
                     JOptionPane.showMessageDialog(null, "Error displaying patient information: " + e2.getMessage());
@@ -356,7 +348,7 @@ public class showallPatients extends JFrame {
                         int selectedRow = table.getSelectedRow();
                         if (selectedRow != -1) {
                             try {
-//                                Connection conn = DatabaseConnection.getConnection();
+//                                Connection conn = com.phr.database.DatabaseConnection.getConnection();
                                 Statement statement2 = conn.createStatement();
 
                                 // Get the patient ID from the selected row
@@ -406,8 +398,11 @@ public class showallPatients extends JFrame {
             });
 
         Reset.addActionListener(e -> {
-            frame5.setVisible(false);
+//            frame5.setVisible(false);
+//            frame5.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //            new mainFunc();
+            searchFField.setText("");
+            searchLField.setText("");
         });
 
         frame5.add(header1);

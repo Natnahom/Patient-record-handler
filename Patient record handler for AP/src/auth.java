@@ -1,3 +1,7 @@
+import com.phr.database.DatabaseConnection;
+import com.phr.functions.Frame;
+import com.phr.functions.showallPatients;
+
 import javax.swing.*;
 import java.awt.*;
 import java.sql.*;
@@ -5,7 +9,7 @@ import java.util.Objects;
 
 public class auth {
     auth(){
-        Frame frame = new Frame();
+        com.phr.functions.Frame frame = new Frame();
         Connection conn = DatabaseConnection.getConnection();
 
         JLabel label = new JLabel();
@@ -54,11 +58,11 @@ public class auth {
                         frame.setVisible(false);
 //                        new mainFunc();
                         new showallPatients();
-                        try {
-                            conn.close();
-                        } catch (SQLException ex) {
-                            throw new RuntimeException(ex);
-                        }
+//                        try {
+//                            conn.close();
+//                        } catch (SQLException ex) {
+//                            throw new RuntimeException(ex);
+//                        }
                     } else {
                         JOptionPane.showMessageDialog(frame, "Invalid Password", "Error", JOptionPane.ERROR_MESSAGE);
                     }
@@ -78,7 +82,7 @@ public class auth {
     }
 
     private static void changePassword() {
-        Frame frame2 = new Frame();
+        Frame frame2 = new com.phr.functions.Frame();
         Connection conn = DatabaseConnection.getConnection();
 
         JLabel label1 = new JLabel();
@@ -170,8 +174,8 @@ public class auth {
 
     // for adding employees information and password
 //    private static void addUser() {
-//        Frame frame3 = new Frame();
-//        Connection conn = DatabaseConnection.getConnection();
+//        com.phr.functions.Frame frame3 = new com.phr.functions.Frame();
+//        Connection conn = com.phr.database.DatabaseConnection.getConnection();
 //
 //        JLabel label1 = new JLabel();
 //        JLabel label2 = new JLabel();

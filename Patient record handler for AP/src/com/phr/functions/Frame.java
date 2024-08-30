@@ -1,8 +1,10 @@
+package com.phr.functions;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class Frame extends JFrame {
-    Frame(){
+    public Frame(){
 
         this.setTitle("Patient Record Handler");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

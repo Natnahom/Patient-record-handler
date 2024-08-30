@@ -1,3 +1,6 @@
+package com.phr.functions;
+
+import com.phr.database.DatabaseConnection;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,9 +10,10 @@ import java.util.Objects;
 public class updatePatient {
     Connection conn = DatabaseConnection.getConnection();
     updatePatient(){
-        Frame frame3 = new Frame();
+        com.phr.functions.Frame frame3 = new Frame();
         frame3.setTitle("Update Patient");
 
+        frame3.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JLabel Fname = new JLabel("1.First Name ");
         JLabel Lname = new JLabel("2.Last Name ");
         JLabel DateOfBirth = new JLabel("3.Date of Birth ");

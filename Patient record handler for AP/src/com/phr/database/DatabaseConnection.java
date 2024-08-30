@@ -1,3 +1,5 @@
+package com.phr.database;
+
 import java.sql.*;
 
 public class DatabaseConnection {
